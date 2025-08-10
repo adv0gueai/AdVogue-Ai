@@ -43,7 +43,7 @@ export function CustomCursor() {
       animate={{
         width: cursorSize,
         height: cursorSize,
-        backgroundColor: hovering ? "#ef4444" : "#000",
+        backgroundColor: hovering ? "#ef4444" : "#fff",
       }}
       className="fixed top-0 left-0 rounded-full pointer-events-none z-50 mix-blend-difference"
     />
