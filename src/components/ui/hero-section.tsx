@@ -18,6 +18,24 @@ export function HeroSection() {
 
   return (
     <section className="min-h-[60vh] flex items-center justify-center pt-16 sm:pt-24 pb-16 sm:pb-20 px-4 w-full overflow-hidden bg-[#faf9f7] relative">
+      <motion.div
+        className="absolute -top-32 -left-32 w-64 h-64 bg-red-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20"
+        animate={{ x: [0, 30, 0], y: [0, -30, 0], rotate: [0, 360, 0] }}
+        transition={{
+          duration: 30,
+          repeat: Number.POSITIVE_INFINITY,
+          ease: "linear",
+        }}
+      />
+      <motion.div
+        className="absolute -bottom-32 -right-32 w-64 h-64 bg-black rounded-full mix-blend-multiply filter blur-3xl opacity-10"
+        animate={{ x: [0, -20, 0], y: [0, 20, 0], rotate: [0, -360, 0] }}
+        transition={{
+          duration: 25,
+          repeat: Number.POSITIVE_INFINITY,
+          ease: "linear",
+        }}
+      />
       <div className="max-w-6xl mx-auto text-center relative z-10 w-full">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -41,7 +59,7 @@ export function HeroSection() {
             <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold tracking-tight text-slate-900">
               with AI Voice Agents.
             </h1>
-            <div className="absolute inset-0 bg-red-500/40 -skew-x-6 transform -z-10 translate-y-4"></div>
+            <div className="absolute inset-0 bg-red-500/40 -skew-x-6 transform -z-10 translate-y-4" />
           </div>
         </motion.div>
 
