@@ -5,6 +5,7 @@ import { BottomNavbar } from "@/components/ui/bottom-navbar";
 import { Footer } from "@/components/ui/footer";
 import { CustomCursor } from "@/components/ui/custom-cursor";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
+import { PageTransition } from "@/components/ui/page-transition";
 import "./globals.css";
 
 const navigationItems = [
@@ -23,7 +24,7 @@ export default function RootLayout({
       <body className="bg-[#faf9f7] cursor-none">
         <ScrollProgress />
         <main className="flex min-h-screen flex-col items-center justify-between pt-8 pb-16 md:pb-8">
-          {children}
+          <PageTransition>{children}</PageTransition>
           <FloatingNavbar items={navigationItems} />
           <BottomNavbar />
           <Footer />
