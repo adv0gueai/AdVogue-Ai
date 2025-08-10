@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "./button";
 import React from "react";
 import Link from "next/link";
@@ -8,6 +8,10 @@ import { PhoneIcon } from "@heroicons/react/24/outline";
 import { Logo } from "@/components/Logo";
 
 export function HeroSection() {
+  const { scrollY } = useScroll();
+  const topBlobY = useTransform(scrollY, [0, 500], [0, -50]);
+  const bottomBlobY = useTransform(scrollY, [0, 500], [0, 100]);
+
   const handleSectionClick = (sectionId: string) => {
     if (window.location.pathname !== '/') {
       window.location.href = `/#${sectionId}`;
@@ -20,7 +24,8 @@ export function HeroSection() {
     <section className="min-h-[60vh] flex items-center justify-center pt-16 sm:pt-24 pb-16 sm:pb-20 px-4 w-full overflow-hidden bg-[#faf9f7] relative">
       <motion.div
         className="absolute -top-32 -left-32 w-64 h-64 bg-red-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20"
-        animate={{ x: [0, 30, 0], y: [0, -30, 0], rotate: [0, 360, 0] }}
+        style={{ y: topBlobY }}
+        animate={{ x: [0, 30, 0], rotate: [0, 360, 0] }}
         transition={{
           duration: 30,
           repeat: Number.POSITIVE_INFINITY,
@@ -29,7 +34,8 @@ export function HeroSection() {
       />
       <motion.div
         className="absolute -bottom-32 -right-32 w-64 h-64 bg-black rounded-full mix-blend-multiply filter blur-3xl opacity-10"
-        animate={{ x: [0, -20, 0], y: [0, 20, 0], rotate: [0, -360, 0] }}
+        style={{ y: bottomBlobY }}
+        animate={{ x: [0, -20, 0], rotate: [0, -360, 0] }}
         transition={{
           duration: 25,
           repeat: Number.POSITIVE_INFINITY,
